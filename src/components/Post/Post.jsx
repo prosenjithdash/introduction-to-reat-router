@@ -1,7 +1,14 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Post = ({ post }) => {
+
+    const navigate = useNavigate()
+
+    const handleOnClickDetails = () => {
+        navigate(`/post/${id}`)
+    }
+
     const postStyle = {
         border: '5px solid green',
         padding: '20px',
@@ -15,6 +22,9 @@ const Post = ({ post }) => {
             <span>{body}</span>
             <br /><br />
             <Link to={`/post/${id}`}><button>More Details</button></Link>
+
+            {/* Apply ON CLICK*/}
+            <button onClick={handleOnClickDetails}>View More...</button>
         </div>
     );
 };
